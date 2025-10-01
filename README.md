@@ -162,7 +162,3 @@ crontab -l
 # Ver logs del sistema
 grep CRON /var/log/syslog | tail -20
 ```
-
-## Licencia
-
-ISC
