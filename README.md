@@ -33,7 +33,7 @@ rclone config
 ### 2. Dar permisos de ejecución a los scripts
 
 ```bash
-chmod +x download.sh sync.sh pack_last_month.sh pack_month.sh
+chmod +x download.sh sync.sh pack_month.sh
 ```
 
 ### 3. Configurar timezone (opcional)
@@ -53,11 +53,8 @@ sudo timedatectl set-timezone Europe/Madrid
 # Procesar día anterior (comprimir + video + subir)
 ./sync.sh
 
-# Empaquetar mes específico
-./pack_month.sh 202509
-
-# Empaquetar mes anterior automáticamente
-./pack_last_month.sh
+# Empaquetar mes anterior
+./pack_month.sh
 ```
 
 ### Automatización con Cron
@@ -76,7 +73,7 @@ Añadir:
 0 3 * * * /ruta/completa/vigo-camera-downloader-py/sync.sh >> /tmp/sync.log 2>&1
 
 # Empaquetar mes anterior el día 1 de cada mes a las 7 AM
-0 7 1 * * /ruta/completa/vigo-camera-downloader-py/pack_last_month.sh >> /tmp/pack_month.log 2>&1
+0 7 1 * * /ruta/completa/vigo-camera-downloader-py/pack_month.sh >> /tmp/pack_month.log 2>&1
 ```
 
 Reemplazar `/ruta/completa/` con la ruta real del proyecto.
@@ -88,7 +85,6 @@ vigo-camera-downloader-py/
 ├── main.py                 # Script principal de descarga
 ├── download.sh             # Ejecuta main.py con timezone correcto
 ├── sync.sh                 # Procesa día anterior: comprime, genera video y sube
-├── pack_last_month.sh      # Wrapper para empaquetar mes anterior
 ├── pack_month.sh           # Empaqueta archivos mensuales en Drive
 ├── requirements.txt        # Dependencias Python
 ├── cameras.json            # Cache de metadatos de cámaras (generado automáticamente)

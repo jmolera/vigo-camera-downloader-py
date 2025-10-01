@@ -2,7 +2,9 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-FECHA=$1
+FECHA=$(TZ=":Europe/Madrid" date -d 'last month' +%Y%m)
+
+echo "Empaquetando mes: $FECHA"
 
 LSF_FILE=$SCRIPT_DIR/lsf.txt
 WORK_DIR=$SCRIPT_DIR/last_month
