@@ -1,5 +1,4 @@
-imagenes_vigo/
-camaras.json
-camaras.csv
+imagenes/
+cameras.json
 *.log
-deprecated
+deprecated/
